@@ -29,7 +29,33 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 	@Override
 	public Estudiante buscarPorApellidoQuery(String apellido) {
 		// TODO Auto-generated method stub
-		return null;
+		Query query= this.entityManager.createQuery("select e from Estudiante e where e.apellido = :datoApellido");
+		query.setParameter("datoApellido", apellido);
+		return (Estudiante) query.getSingleResult();
+	}
+
+	@Override
+	public Estudiante buscarPorGeneroQuery(String genero) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery("select e from Estudiante e where e.genero = :datoGenero");
+		query.setParameter("datoGenero", genero);
+		return (Estudiante) query.getSingleResult();
+	}
+
+	@Override
+	public Estudiante buscarPorCedulaQuery(String cedula) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery("select e from Estudiante e where e.cedula = :datoCedula");
+		query.setParameter("datoCedula", cedula);
+		return (Estudiante) query.getSingleResult();
+	}
+
+	@Override
+	public Estudiante buscarPorCiudadQuery(String ciudad) {
+		// TODO Auto-generated method stub
+		Query query= this.entityManager.createQuery("select e from Estudiante e where e.ciudad = :datoCiudad");
+		query.setParameter("datoCiudad", ciudad);
+		return (Estudiante) query.getSingleResult();
 	}
 
 }
