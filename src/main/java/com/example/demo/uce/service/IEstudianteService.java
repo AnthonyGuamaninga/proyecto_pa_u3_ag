@@ -10,4 +10,15 @@ public interface IEstudianteService {
 	public Estudiante buscarCedula(String cedula);
 	public Estudiante buscarCiudad(String ciudad);
 
+	public Estudiante buscarNombreTypedQuery(String nombre);
+	
+	public Estudiante buscarPorNombreNamedQuery(String nombre);
+	 
+	public Estudiante buscarPorNombreNamedQueryTyped(String nombre);
+	
+	//Native
+	public Estudiante buscarPorNombreNativeQuery(String nombre);
+	// Combinacion Native Type Named
+	public Estudiante buscarPorNombreNativeQueryTypedNamed(String nombre);
+
 }

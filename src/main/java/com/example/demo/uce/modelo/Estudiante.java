@@ -8,11 +8,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedNativeQueries;
+import jakarta.persistence.NamedNativeQuery;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "estudiante")
+@NamedQuery(name = "Estudiante.buscarPorNombre", query = "select e from Estudiante e where e.nombre = :datoNombre")// nombre de la Entidad . Nombre representativo del JPQL
+
+@NamedNativeQuery(name="Estudiante.buscarPorNombreNative", query = "select * from estudiante where estu_nombre = :datoNombre")
 public class Estudiante {
 	
 	@Id
