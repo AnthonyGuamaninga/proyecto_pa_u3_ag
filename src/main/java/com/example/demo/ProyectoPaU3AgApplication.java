@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,9 +28,11 @@ public class ProyectoPaU3AgApplication  implements CommandLineRunner{
 		//Estudiante estudiante = this.estudianteService.buscarNombre("Carlos");
 		//System.out.println(estudiante+"\n");
 		
-		Estudiante estudiante2 = this.estudianteService.buscarNombreTypedQuery("David");
+		
+		Estudiante estudiante2 = this.estudianteService.buscarNombreTypedQuery("Carlos");
 		System.out.println("Consulta 1: "+ estudiante2);
 		
+		/*
 		Estudiante estudiante3 = this.estudianteService.buscarPorNombreNamedQuery("Sandra");
 		System.out.println("Consulta 2: "+estudiante3);
 		
@@ -36,9 +41,24 @@ public class ProyectoPaU3AgApplication  implements CommandLineRunner{
 		
 		Estudiante estudiante5 = this.estudianteService.buscarPorNombreNativeQuery("David");
 		System.out.println("Consulta 4: "+estudiante5);
+		*/
+		//Estudiante estudiante6 = this.estudianteService.buscarPorNombreNativeQueryTypedNamed("Carlos");
+		//System.out.println(estudiante6);
 		
-		//Estudiante estudiante4 = this.estudianteService.buscarPorNombreNativeQueryTypedNamed("Carlos");
-		//System.out.println(estudiante4);
+		
+		System.out.println();
+		List<Estudiante> estudiantes =this.estudianteService.buscarPorNombreQueryList("Anthony");
+		for(Estudiante e: estudiantes) {
+			System.out.println(e);
+		}
+		
+		
+		
+		//retornar el primer elemento de una lista
+		System.out.println();
+		Estudiante estudiantes2 = this.estudianteService.buscarPorNombreQueryListFirst("Sandra");
+		System.out.println(estudiantes2);
+		
 		
 
 		/*

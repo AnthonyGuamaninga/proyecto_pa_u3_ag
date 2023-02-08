@@ -1,5 +1,7 @@
 package com.example.demo.uce.service;
 
+import java.util.List;
+
 import com.example.demo.uce.modelo.Estudiante;
 
 public interface IEstudianteService {
@@ -21,4 +23,11 @@ public interface IEstudianteService {
 	// Combinacion Native Type Named
 	public Estudiante buscarPorNombreNativeQueryTypedNamed(String nombre);
 
+	
+	public List<Estudiante> buscarPorNombreQueryList(String nombre);
+	public Estudiante buscarPorNombreQueryListFirst(String nombre);
+
+	public List<Estudiante> buscarPorNombreNamedQueryList(String nombre);
+
+	
 }
