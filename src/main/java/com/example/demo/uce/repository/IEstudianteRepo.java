@@ -6,6 +6,7 @@ import com.example.demo.modelo.dto.EstudianteDTO;
 import com.example.demo.uce.modelo.Estudiante;
 
 public interface IEstudianteRepo {
+	public void insertar(Estudiante estudiante);
 	
 	public Estudiante buscarPorNombreQuery(String nombre);
 	public Estudiante buscarPorApellidoQuery(String apellido);
@@ -24,7 +25,7 @@ public interface IEstudianteRepo {
 	// Combinacion Native Type Named
 	public Estudiante buscarPorNombreNativeQueryTypedNamed(String nombre);
 
-	
+	//Uso de List
 	public List<Estudiante> buscarPorNombreQueryList(String nombre);
 	public Estudiante buscarPorNombreQueryListFirst(String nombre);
 	public List<Estudiante> buscarPorNombreNamedQueryList(String nombre);
@@ -34,6 +35,11 @@ public interface IEstudianteRepo {
 
 	// API QUERY
 	public Estudiante buscarPornombreCriteria(String nombre);
-	
 	public List<Estudiante> buscarPornombreCriteriaAndOr(String nombre, String apellido, String genero);
+
+	
+	public int eliminarPorApellido(String apellido);
+	public int actualizarPorApellido(String apellido, String nombre);
+
+	
 }

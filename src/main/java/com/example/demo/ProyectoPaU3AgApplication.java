@@ -26,16 +26,16 @@ public class ProyectoPaU3AgApplication  implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		EstudianteDTO dto= this.estudianteService.buscarPorNombreQueryTypedDTO("Anthony");
-		System.out.println("DTO: "+dto);
+		/*
+		int salidaEliminar = this.estudianteService.eliminarPorApellido("Ceri");
+		System.out.println("Consulta Eliminar: "+salidaEliminar);
 		
-		Estudiante estudiante = this.estudianteService.buscarPornombreCriteria("Carlos");
-		System.out.println("Criteria API Query: "+estudiante);
+		int salidaActualizar = this.estudianteService.actualizarPorApellido("Paredes", "Rebeca");
+		System.out.println("Consulta Actualizar: "+salidaActualizar);
+		*/
+		Estudiante estudiante = new Estudiante(); 
+		estudiante.setApellido(null);
 		
-		System.out.println();
-		List<Estudiante> estudiantes = this.estudianteService.buscarPornombreCriteriaAndOr("Sandra","Paredes","M");
-		System.out.println();
-		List<Estudiante> estudiantes2 = this.estudianteService.buscarPornombreCriteriaAndOr("Luis", "Palacios", "F");
 	}
 
 }

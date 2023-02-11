@@ -23,6 +23,12 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+	
+	@Override
+	public void insertar(Estudiante estudiante) {
+		// TODO Auto-generated method stub
+		this.entityManager.persist(estudiante);
+	}
 
 	@Override
 	public Estudiante buscarPorNombreQuery(String nombre) {
@@ -213,5 +219,26 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 
 		return mySQL.getResultList();
 	}
+
+	@Override
+	public int eliminarPorApellido(String apellido) {
+		// TODO Auto-generated method stub
+		// DELETE FROM estudiante where estu_apellido = 'Chacal'
+		Query query= this.entityManager.createQuery("DELETE FROM Estudiante e WHERE e.apellido= :datoApellido");
+		query.setParameter("datoApellido", apellido);
+		return query.executeUpdate();
+	}
+
+	@Override
+	public int actualizarPorApellido(String apellido, String nombre) {
+		// TODO Auto-generated method stub
+		// UPDATE estudiante set estu_nombre= 'Edison' WHERE estu_apellido='Cayambe'
+		Query query = this.entityManager.createQuery("UPDATE Estudiante e SET e.nombre= :datoNombre WHERE e.apellido= :datoApellido");
+		query.setParameter("datoNombre", nombre);
+		query.setParameter("datoApellido", apellido);
+		return query.executeUpdate();
+	}
+
+	
 
 }

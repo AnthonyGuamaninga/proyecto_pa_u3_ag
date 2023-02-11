@@ -16,6 +16,12 @@ public class EstudianteServiceImpl implements IEstudianteService {
 	private IEstudianteRepo estudianteRepo;
 	
 	@Override
+	public void insertar(Estudiante estudiante) {
+		// TODO Auto-generated method stub
+		this.estudianteRepo.insertar(estudiante);
+	}
+	
+	@Override
 	public Estudiante buscarNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.buscarPorNombreQuery(nombre);
@@ -110,5 +116,19 @@ public class EstudianteServiceImpl implements IEstudianteService {
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.buscarPornombreCriteriaAndOr(nombre, apellido, genero);
 	}
+
+	@Override
+	public int eliminarPorApellido(String apellido) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.eliminarPorApellido(apellido);
+	}
+
+	@Override
+	public int actualizarPorApellido(String apellido, String nombre) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.actualizarPorApellido(apellido, nombre);
+	}
+
+	
 
 }
