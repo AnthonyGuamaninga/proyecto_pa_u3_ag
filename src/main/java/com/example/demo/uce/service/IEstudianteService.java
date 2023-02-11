@@ -2,6 +2,7 @@ package com.example.demo.uce.service;
 
 import java.util.List;
 
+import com.example.demo.modelo.dto.EstudianteDTO;
 import com.example.demo.uce.modelo.Estudiante;
 
 public interface IEstudianteService {
@@ -28,6 +29,13 @@ public interface IEstudianteService {
 	public Estudiante buscarPorNombreQueryListFirst(String nombre);
 
 	public List<Estudiante> buscarPorNombreNamedQueryList(String nombre);
+
+	//DTO
+	public EstudianteDTO buscarPorNombreQueryTypedDTO(String nombre);
+	// CRITERIA API
+	public Estudiante buscarPornombreCriteria(String nombre);
+	
+	public List<Estudiante> buscarPornombreCriteriaAndOr(String nombre, String apellido, String genero);
 
 	
 }
