@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "estudiante")
-																													// .
+																													
 @NamedQueries({
 		@NamedQuery(name = "Estudiante.buscarPorNombre", query = "select e from Estudiante e where e.nombre = :datoNombre"),
 		@NamedQuery(name = "Estudiante.buscarPorNombre1", query = "select e from Estudiante e where e.nombre = :datoNombre"),

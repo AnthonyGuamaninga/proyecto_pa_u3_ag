@@ -1,5 +1,7 @@
 package com.example.demo.uce.service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.example.demo.modelo.dto.EstudianteDTO;
@@ -40,4 +42,12 @@ public interface IEstudianteService {
 	
 	public int eliminarPorApellido(String apellido);
 	public int actualizarPorApellido(String apellido, String nombre);
+	
+	// ACTUALIZAR
+	public int actualizarPorNombre(String nombre, String hobby);
+	public int actualizarPorCiudadYGenero(String ciudad, String genero, BigDecimal salario);
+
+	// ELIMINAR
+	public int eliminarPorGeneroYFecha(String genero, LocalDateTime fecha);
+	public int eliminarPorApellidoYSalario(String apellido, BigDecimal salario);
 }

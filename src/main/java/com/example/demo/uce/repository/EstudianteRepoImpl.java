@@ -1,5 +1,7 @@
 package com.example.demo.uce.repository;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -233,11 +235,56 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 	public int actualizarPorApellido(String apellido, String nombre) {
 		// TODO Auto-generated method stub
 		// UPDATE estudiante set estu_nombre= 'Edison' WHERE estu_apellido='Cayambe'
-		Query query = this.entityManager.createQuery("UPDATE Estudiante e SET e.nombre= :datoNombre WHERE e.apellido= :datoApellido");
+		Query query = this.entityManager
+				.createQuery("UPDATE Estudiante e SET e.nombre= :datoNombre WHERE e.apellido= :datoApellido");
 		query.setParameter("datoNombre", nombre);
 		query.setParameter("datoApellido", apellido);
 		return query.executeUpdate();
 	}
+
+	// deber: 
+	@Override
+	public int actualizarPorNombre(String nombre, String hobby) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery(
+				"UPDATE Estudiante e SET e.hobby= :datoHobby WHERE e.nombre= :datoNombre");
+		query.setParameter("datoHobby", hobby);
+		query.setParameter("datoNombre", nombre);
+		return query.executeUpdate();
+	}
+
+	@Override
+	public int actualizarPorCiudadYGenero(String ciudad, String genero, BigDecimal salario) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery(
+				"UPDATE Estudiante e SET e.salario= :datoSalario WHERE e.ciudad= :datoCiudad and e.genero= :datoGenero");
+		query.setParameter("datoSalario", salario);
+		query.setParameter("datoCiudad", ciudad);
+		query.setParameter("datoGenero", genero);
+		return query.executeUpdate();
+	}
+
+	@Override
+	public int eliminarPorGeneroYFecha(String genero, LocalDateTime fecha) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery(
+				"DELETE FROM Estudiante e WHERE e.genero= :datoGenero and e.fechaNacimiento= :datoFecha");
+		query.setParameter("datoGenero", genero);
+		query.setParameter("datoFecha", fecha);
+		return query.executeUpdate();
+	}
+
+	@Override
+	public int eliminarPorApellidoYSalario(String apellido, BigDecimal salario) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery(
+				"DELETE FROM Estudiante e WHERE e.apellido= :datoApellido and e.salario= :datoSalario");
+		query.setParameter("datoApellido", apellido);
+		query.setParameter("datoSalario", salario);
+		return query.executeUpdate();
+	}
+
+	
 
 	
 

@@ -1,5 +1,7 @@
 package com.example.demo.uce.service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,6 +129,30 @@ public class EstudianteServiceImpl implements IEstudianteService {
 	public int actualizarPorApellido(String apellido, String nombre) {
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.actualizarPorApellido(apellido, nombre);
+	}
+
+	@Override
+	public int actualizarPorNombre(String nombre, String hobby) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.actualizarPorNombre(nombre, hobby);
+	}
+
+	@Override
+	public int actualizarPorCiudadYGenero(String ciudad, String genero, BigDecimal salario) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.actualizarPorCiudadYGenero(ciudad, genero, salario);
+	}
+
+	@Override
+	public int eliminarPorGeneroYFecha(String genero, LocalDateTime fecha) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.eliminarPorGeneroYFecha(genero, fecha);
+	}
+
+	@Override
+	public int eliminarPorApellidoYSalario(String apellido, BigDecimal salario) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.eliminarPorApellidoYSalario(apellido, salario);
 	}
 
 	
