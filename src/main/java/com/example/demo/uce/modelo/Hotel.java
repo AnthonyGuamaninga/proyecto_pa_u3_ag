@@ -28,7 +28,7 @@ public class Hotel {
 	private String direccion;
 	
 	//relacion de muchos a muchos
-	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Habitacion> habitaciones; // Un hotel tiene muchas Habitaciones
 	
 	@Override
